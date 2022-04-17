@@ -1,0 +1,33 @@
+<IfModule mod_rewrite.c>
+
+    <IfModule mod_negotiation.c>
+        Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+
+    ##
+
+    RewriteRule ^storage/temp/protected/.* index.php [L,NC]
+    RewriteRule ^storage/app/uploads/protected/.* index.php [L,NC]
+
+    ##
+    ## White listed folders
+    ##
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} !/storage/app/temp/.*
+    RewriteCond %{REQUEST_FILENAME} !/storage/app/uploads/.*
+
+    RewriteRule !^index.php index.php [L,NC]
+
+  
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteCond %{REQUEST_FILENAME} \.php$
+    RewriteRule !^index.php index.php [L,NC]
+
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+</IfModule>
