@@ -5,8 +5,6 @@
 I think this site safe from upload file, prove me wrong please.
 https://uploadz-web.crewctf-2022.crewc.tf/
 
-#
-
 ## First observations and ideas
 
 The given website prompts you with a simple upload form. There are almost no upload restrictions in place.
